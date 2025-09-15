@@ -19,25 +19,155 @@
       -webkit-user-drag: none;
       user-select: none;
     }
+    .container {
+      max-width: 100wv;
+      margin: 0 auto;
+    }
+
+    .image-container {
+      position: relative;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .image-container::before {
+      content: '';
+      display: block;
+      /* Соотношение сторон для изображений 16:9, адаптируйте по необходимости */
+      padding-top: 56.25%; 
+    }
+
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0; 
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .image-container.loaded img {
+      opacity: 1;
+    }
+
+    .image-container.loaded .spinner {
+      display: none;
+    }
+
   </style>
 </head>
 <body>
-  <img src="images/page01.png" alt="Сторінка 1" loading="lazy" />
-  <img src="images/page02.png" alt="Сторінка 2" loading="lazy" />
-  <img src="images/page03.png" alt="Сторінка 3" loading="lazy" />
-  <img src="images/page04.png" alt="Сторінка 4" loading="lazy" />
-  <img src="images/page05.png" alt="Сторінка 5" loading="lazy" />
-  <img src="images/page06.png" alt="Сторінка 6" loading="lazy" />
-  <img src="images/page07.png" alt="Сторінка 7" loading="lazy" />
-  <img src="images/page08.png" alt="Сторінка 8" loading="lazy" />
-  <img src="images/page09.png" alt="Сторінка 9" loading="lazy" />
-  <img src="images/page10.png" alt="Сторінка 10" loading="lazy" />
-  <img src="images/page11.png" alt="Сторінка 11" loading="lazy" />
-  <img src="images/page12.png" alt="Сторінка 12" loading="lazy" />
-  <img src="images/page13.png" alt="Сторінка 13" loading="lazy" />
-  <img src="images/page14.png" alt="Сторінка 14" loading="lazy" />
-  <img src="images/page15.png" alt="Сторінка 15" loading="lazy" />
-  <img src="images/page16.png" alt="Сторінка 16" loading="lazy" />
-  <img src="images/page17.png" alt="Сторінка 17" loading="lazy" />
+  <div class="container">
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page01.png" alt="Сторінка 1" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page02.png" alt="Сторінка 2" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page03.png" alt="Сторінка 3" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page04.png" alt="Сторінка 4" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page05.png" alt="Сторінка 5" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page06.png" alt="Сторінка 6" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page07.png" alt="Сторінка 7" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page08.png" alt="Сторінка 8" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page09.png" alt="Сторінка 9" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page10.png" alt="Сторінка 10" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page11.png" alt="Сторінка 11" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page12.png" alt="Сторінка 12" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page13.png" alt="Сторінка 13" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page14.png" alt="Сторінка 14" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page15.png" alt="Сторінка 15" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page16.png" alt="Сторінка 16" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/page17.png" alt="Сторінка 17" loading="lazy" />
+    </div>
+  </div>
+
+  <script>
+    // JavaScript-код для управления загрузкой изображений
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.image-container img');
+
+      images.forEach(img => {
+        const container = img.closest('.image-container');
+
+        const imageLoaded = () => {
+          container.classList.add('loaded');
+        };
+
+        if (img.complete) {
+          imageLoaded();
+        } else {
+          img.addEventListener('load', imageLoaded);
+          img.addEventListener('error', imageLoaded); // На случай ошибки загрузки
+        }
+      });
+    });
+  </script>
 </body>
 </html>
