@@ -30,12 +30,14 @@
       overflow: hidden;
     }
 
+    /* 
     .image-container::before {
       content: '';
       display: block;
-      /* Соотношение сторон для изображений 16:9, адаптируйте по необходимости */
+      // Соотношение сторон для изображений 16:9, адаптируйте по необходимости 
       padding-top: 135.86%; 
     }
+     */
 
     .spinner {
       position: absolute;
@@ -56,10 +58,11 @@
     }
 
     .image-container img {
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
       width: 100%;
+      min-height: 800px;
       height: 100%;
       display: block;
       opacity: 0; 
@@ -132,7 +135,11 @@
     </div>
     <div class="image-container">
       <div class="spinner"></div>
-      <img src="images/hot-dish.png" alt="hot-dish" loading="lazy" />
+      <img src="images/hot-dish-1.png" alt="hot-dish" loading="lazy" />
+    </div>
+    <div class="image-container">
+      <div class="spinner"></div>
+      <img src="images/hot-dish-2.png" alt="hot-dish" loading="lazy" />
     </div>
     <!-- <div class="image-container">
       <div class="spinner"></div>
