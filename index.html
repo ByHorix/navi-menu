@@ -10,10 +10,20 @@
       margin: 0;
       height: 100%;
     }
-    iframe {
+/*     iframe {
       width: 100%;
       height: 100%;
       border: none;
+    } */
+    img {
+      display: block;
+      width: 100vw;     /* займає всю ширину екрану */
+      height: auto;     /* зберігає пропорції */
+      max-width: 100%;
+      object-fit: contain;
+      -webkit-user-drag: none;
+      user-select: none;
+      touch-action: pan-y; /* вертикальний скрол без блокування зуму */
     }
   </style>
 </head>
